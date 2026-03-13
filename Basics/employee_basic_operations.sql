@@ -1,6 +1,6 @@
 -- =========================================
 -- Lab 1 : Basic SQL Operations on Employee Table
--- Author : Ashwin Shetty
+-- Author : Ashwin H V
 -- Description : Demonstrates basic SQL commands
 -- =========================================
 
