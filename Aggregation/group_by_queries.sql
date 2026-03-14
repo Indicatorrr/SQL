@@ -38,3 +38,13 @@ SELECT dept_name,
 FROM instructor
 GROUP BY dept_name
 HAVING AVG(salary) > 42000;
+
+-- Number of students taught by instructor 10101
+SELECT COUNT(DISTINCT ID)
+FROM takes
+WHERE (course_id,sec_id,year) IN
+(
+    SELECT course_id,sec_id,year
+    FROM teaches
+    WHERE ID=10101
+);
