@@ -1,0 +1,18 @@
+-- Instructor who teaches all CSE students
+SELECT i.name AS Name
+FROM instructor i
+JOIN teaches t ON i.ID = t.ID
+JOIN takes tk
+    ON t.course_id = tk.course_id
+   AND t.sec_id = tk.sec_id
+   AND t.semester = tk.semester
+   AND t.year = tk.year
+JOIN student s ON s.ID = tk.ID
+WHERE s.dept_name = 'CSE'
+GROUP BY i.ID, i.name
+HAVING COUNT(DISTINCT s.ID) =
+(
+    SELECT COUNT(*)
+    FROM student
+    WHERE dept_name = 'CSE'
+);
